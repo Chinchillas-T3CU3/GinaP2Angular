@@ -1,1 +1,111 @@
-<p>formulario-finaciero works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="formulario">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error>
+        @if (nombre.touched && nombre.invalid) {
+          @if (nombre.hasError('required')) {
+            <span>Nombre es requerido</span>
+          }
+          @if (nombre.hasError('minlength')) {
+            <span>Mínimo 10 caracteres</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo">
+      <mat-error>
+        @if (correo.touched && correo.invalid) {
+          @if (correo.hasError('required')) {
+            <span>Correo requerido</span>
+          }
+          @if (correo.hasError('email')) {
+            <span>Correo inválido</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Banco</mat-label>
+        <mat-select formControlName="banco">
+          @for (banco of bancos; track banco) {
+            <mat-option [value]="banco">{{ banco }}</mat-option>
+          }
+        </mat-select>
+        
+        @if (banco.touched && banco.invalid) {
+          <mat-error>Selecciona un banco</mat-error>
+        }
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cantidad del préstamo</mat-label>
+      <input matInput type="number" formControlName="cantidad">
+      <mat-error>
+        @if (cantidad.touched && cantidad.invalid) {
+          @if (cantidad.hasError('required')) {
+            <span>Cantidad requerido</span>
+          }
+          @if (cantidad.hasError('min')) {
+            <span>Cantidad minima mayor a 999</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mensualidades</mat-label>
+      <mat-select formControlName="pago">
+        @for (mensualidad of mensualidades; track mensualidad) {
+          <mat-option [value]="mensualidad">{{ mensualidad }}</mat-option>
+        }
+      </mat-select>
+      
+      @if (pago.touched && pago.invalid) {
+        <mat-error>Selecciona una Mesualidad</mat-error>
+      }
+    </mat-form-field>
+  
+    <label>Tipo de cliente</label>
+    <mat-radio-group formControlName="tipo">
+      <mat-radio-button value="Nuevo">Nuevo</mat-radio-button>
+      <mat-radio-button value="Recurrente">Recurrente</mat-radio-button>
+    </mat-radio-group>
+    <mat-error>
+        @if(tipo.touched && tipo.invalid){
+            <span>Selecciona un tipo</span>
+        }
+    </mat-error>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Fecha del trámite</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fecha">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if (fecha.touched && fecha.invalid) {
+        @if (fecha.hasError('required')) {
+          <span>Feche invalida</span>
+        }
+        @if (fecha.hasError('fechaInvalida')) {
+          <span>fehca no puede ser menor a hoy</span>
+        }
+      }
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="terminos">
+      Acepto los términos y condiciones
+    </mat-checkbox>
+    @if(terminos.touched && terminos.invalid){
+        <mat-error>Debes aceptar los términos</mat-error>
+    }
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
+      Enviar
+    </button>
+</form>
+  
