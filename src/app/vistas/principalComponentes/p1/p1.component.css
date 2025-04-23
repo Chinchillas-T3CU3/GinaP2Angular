@@ -1,0 +1,26 @@
+.principal{
+    font-family: 'Segoe UI', sans-serif;
+    background: #111;
+    height: auto;
+    text-align: center;
+
+    
+  }
+
+.principal h1{
+  padding: 30px;
+  color:white;
+}
+.carousel{
+  margin:auto auto;
+  width: 60%;
+  height: auto;
+
+}
+h5{
+  color:white;
+
+}
+p{
+  color:white;
+}

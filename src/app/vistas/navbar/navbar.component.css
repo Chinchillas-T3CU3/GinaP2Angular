@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    color: #B87333;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .menu a,
+  .icon {
+   
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #B87333;
+  }
