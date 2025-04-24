@@ -1,0 +1,66 @@
+<form #formulario="ngForm" (ngSubmit)="onSubmit()" class="formulario">
+
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput name="nombre" [(ngModel)]="prueba.nombre" required minlength="10" #nombre="ngModel">
+        @if(nombre.invalid && nombre.touched){
+            <mat-error>
+                @if(nombre.errors?.['required']){
+                    <span>Nombre requerido</span>
+                }
+                @if(nombre.errors?.['minlength']){
+                    <span>Mínimo 10 caracteres</span>
+                }
+            </mat-error>
+        }
+    </mat-form-field>
+  
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input matInput name="correo" [(ngModel)]="prueba.correo" required email #correo="ngModel">
+        @if(correo.invalid && correo.touched){
+            <mat-error>
+                @if(correo.errors?.['required']){
+                    <span>Correo requerido</span>
+                }
+                @if(correo.errors?.['email']){
+                    <span>Correo inválido</span>
+                }
+            </mat-error>
+        }
+    </mat-form-field>
+  
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Auto a probar</mat-label>
+        <mat-select name="autoAProbar" [(ngModel)]="prueba.autoAProbar" required #auto="ngModel">
+        @for(auto of crupaAutos; track auto){
+            <mat-option [value]="auto">{{auto}}</mat-option>
+        }
+        </mat-select>
+        @if(auto.invalid && auto.touched){
+            <mat-error>Selecciona un auto para la prueba</mat-error>
+        }
+    </mat-form-field>
+  
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Fecha de prueba</mat-label>
+        <input matInput [matDatepicker]="picker" name="fecha" [(ngModel)]="prueba.fecha" required [matDatepickerFilter]="filtrarFechas" #fecha="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        @if(fecha.invalid && fecha.touched){
+            <mat-error>Selecciona una fecha válida</mat-error>
+        }
+    </mat-form-field>
+  
+    <label>Tipo de transmisión:</label><br>
+    <mat-radio-group name="transmision" [(ngModel)]="prueba.transmision" required #transmision="ngModel">
+        <mat-radio-button value="Automático">Automático</mat-radio-button>
+        <mat-radio-button value="Estándar">Estándar</mat-radio-button>
+    </mat-radio-group>
+    @if(transmision.invalid && transmision.touched){
+        <mat-error>Selecciona un tipo de transmisión</mat-error>
+    }
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
+      Enviar
+    </button>
+  </form>
