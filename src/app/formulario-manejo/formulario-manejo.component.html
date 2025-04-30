@@ -64,3 +64,60 @@
       Enviar
     </button>
   </form>
+
+  <br>
+<h2>Listado de Citas</h2>
+@if(citas.length > 0){
+    <table mat-table [dataSource]="citas" class="mat-elevation-z8 full-width-table" >
+  
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let cita"> {{cita.nombre}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let cita"> {{cita.correo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="autoAProbar">
+          <th mat-header-cell *matHeaderCellDef> Auto a Probar</th>
+          <td mat-cell *matCellDef="let cita"> {{cita.autoAProbar}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let cita"> {{cita.fecha | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="transmision">
+            <th mat-header-cell *matHeaderCellDef> Transmisión </th>
+            <td mat-cell *matCellDef="let cita"> {{cita.transmision}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let prestamo; let i = index">
+              <button mat-icon-button color="primary" (click)="editarCita(i)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let prestamo; let i = index">
+              <button mat-icon-button color="warn" (click)="eliminarCita(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        
+          <!-- Encabezados y filas -->
+          <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+      </table>
+}
+@else{
+    <p>No hay registros de préstamos guardados.</p>
+}

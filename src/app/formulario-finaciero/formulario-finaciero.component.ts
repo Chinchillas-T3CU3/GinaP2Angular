@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,13 +8,16 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swal from 'sweetalert2';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-formulario-finaciero',
   standalone:true,
   imports: [ReactiveFormsModule, MatFormFieldModule,MatInputModule,MatSelectModule,MatRadioModule,
-    MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule],
+    MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule,CommonModule,MatTableModule,CommonModule,MatIconModule ],
   templateUrl: './formulario-finaciero.component.html',
   styleUrl: './formulario-finaciero.component.css'
 })
@@ -23,8 +26,12 @@ export class FormularioFinacieroComponent {
   bancos = ['BBVA', 'Santander', 'Banorte', 'HSBC'];
   mensualidades = ['12 meses', '24 meses', '36 meses'];
   hoy: string;
+  prestamos: any[] = [];
+  columnas: string[] = ['nombre', 'correo', 'banco', 'cantidad', 'pago', 'tipo', 'fecha', 'editar', 'eliminar'];
+  editando:boolean=false;
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, @Inject(PLATFORM_ID) private platformId: Object) {
     const fechaHoy = new Date();
     this.hoy = fechaHoy.toISOString().split('T')[0];
 
@@ -49,6 +56,17 @@ export class FormularioFinacieroComponent {
   get fecha() { return this.formulario.get('fecha')!; }
   get terminos() { return this.formulario.get('terminos')!; }
 
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.prestamos=this.cargarPrestamos();
+    }
+  }
+
+  cargarPrestamos(): any[] {
+    return JSON.parse(localStorage.getItem('prestamos') || '[]');
+  }
+
   validarFecha(control: AbstractControl) {
     if (!control.value) return null;
     const fechaSeleccionada = new Date(control.value);
@@ -58,6 +76,22 @@ export class FormularioFinacieroComponent {
   }
 
   onSubmit() {
+    if(this.formulario.valid&& this.editando){
+      var prestamos:any=[];
+       prestamos = this.cargarPrestamos();
+      var index=prestamos.findIndex((prestamo: { nombre: any; })=>prestamo.nombre==this.formulario.value.nombre);
+      if (index !== -1) {
+        prestamos[index] = this.formulario.value;
+        localStorage.setItem('prestamos', JSON.stringify(prestamos));
+        Swal.fire({
+          title: "Éxito",
+          text: "Préstamo actualizado con éxito",
+          icon: "success"
+        });
+        this.prestamos=this.cargarPrestamos();
+        this.formulario.reset(); // Resetea el formulario
+      }
+    }
     if (this.formulario.valid) {
       Swal.fire({
         title: "Exito",
@@ -68,6 +102,26 @@ export class FormularioFinacieroComponent {
       prestamos.push(this.formulario.value);
       localStorage.setItem('prestamos', JSON.stringify(prestamos));
       this.formulario.reset();
+      this.prestamos=this.cargarPrestamos();
     }
+  }
+
+  editarPrestamo(index: number){
+    const prestamo = this.prestamos[index];
+    console.log(prestamo);
+    this.formulario.patchValue(prestamo);
+    this.editando=true;
+  }
+
+  
+  eliminarPrestamo(index: number) {
+    this.prestamos.splice(index, 1);
+    localStorage.setItem('prestamos', JSON.stringify(this.prestamos));
+    Swal.fire({
+          title: "Exito",
+          text: "Registro eliminado",
+          icon: "success"
+        });
+    this.cargarPrestamos();
   }
 }
