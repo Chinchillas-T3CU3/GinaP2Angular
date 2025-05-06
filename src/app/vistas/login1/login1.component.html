@@ -1,0 +1,16 @@
+<div class="todo">
+  <div class="cuestionario">
+    <div class="interno">
+      <input type="text" placeholder="Username" [(ngModel)]="userI">
+      <input type="password" placeholder="Password" [(ngModel)]="passwordI">
+      <input type="text" placeholder="Nombre Completo" [(ngModel)]="nombreI">
+      <button type="button" (click)="validar()">Acceder</button>
+  
+      @if (accesoValidado === true) {
+        <p>Bienvenido</p>
+      } @else if (accesoValidado === false) {
+        <p>Fuchi caca</p>
+      }
+    </div>
+  </div>
+</div>

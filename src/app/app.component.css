@@ -1,0 +1,22 @@
+.iconos{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1000;
+}
+.iconos img{
+    width: 30px;
+    height: 30px;
+    transition: transfrom 0.2s;
+}
+.iconos img:hover{
+    transform: scale(1.1);
+}

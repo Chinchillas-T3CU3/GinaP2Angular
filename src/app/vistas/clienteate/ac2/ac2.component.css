@@ -1,0 +1,25 @@
+.principal{
+    background: #111;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+}
+.buscador{
+    width: 50%;
+    margin: auto auto;
+    padding-bottom: 3rem;
+}
+.linea{
+    display: flex;
+    margin: auto auto;
+    width: 60%;
+    padding: 20px;
+    justify-content: space-between;
+    color: red;
+
+}
+.item{
+    justify-content: center;
+    text-align: center;
+}
