@@ -1,0 +1,45 @@
+.contenedor-menu {
+    display: flex;
+    justify-content: center;
+    padding-top: 10rem; 
+    background-color:#111;
+  }
+  
+  .menu-interfaz {
+    background-color: #111;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 10rem;
+  }
+  
+  .menu-interfaz h2 {
+    margin-bottom: 30px;
+    color: #B87333;
+  }
+  
+  .botones-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .botones-opciones button {
+    background-color: #333;
+    border: 2px solid white;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .botones-opciones button:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+  }

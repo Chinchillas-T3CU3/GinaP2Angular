@@ -57,7 +57,7 @@ export class Login1Component  {
         );
         this.accesoValidado=true;
         this.autenticado.setUsuario(acceso);
-        this.router.navigate(['/principal']);
+        this.router.navigate(['/AdminMenu']);
 
       }else[
         this.accesoValidado=false
