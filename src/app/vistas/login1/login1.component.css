@@ -1,0 +1,51 @@
+
+.cuestionario{
+    margin: 6rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    min-height: 100vh; 
+    background-color: #1e1e1e;
+}
+.interno input{
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #222;
+    color: white;
+}
+.interno
+{
+    padding: 20px;
+    width: 40%;
+    background-color: #111;
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+button{
+    background:rgba(30, 30, 30, 0.8) ;
+    border-radius: 20px;
+    color: white;
+    padding: 5px;
+    border: solid 2px white;
+    transition: transform 0.2s, background-color 0.2s;
+
+}
+button:hover{
+    color: black;
+  transform: scale(1.1);
+  background-color: white;
+
+    
+   
+
+}
+
+.interno input::placeholder {
+    color: #aaa;
+  }

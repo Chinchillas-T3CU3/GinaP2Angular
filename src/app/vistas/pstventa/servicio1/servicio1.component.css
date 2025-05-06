@@ -1,0 +1,30 @@
+.total{
+    padding-top:8rem ;
+    background: #0a0a0a;
+    padding-bottom: 2rem;
+    display: flex;
+}
+.texto{
+
+    color: white;
+    padding: 3rem;
+    width: 50%;
+    
+}
+.img{
+    padding:0 2rem;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+.img img{
+    margin: auto auto;
+}
+button{
+    background:rgba(30, 30, 30, 0.8) ;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}

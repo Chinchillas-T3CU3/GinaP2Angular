@@ -1,0 +1,39 @@
+.mantenimiento2{
+    padding-top:1rem ;
+    background:white;
+    padding-bottom: 2rem;
+    display: flex;
+}
+.texto{
+
+    color: #B87333;
+    padding: 3rem;
+    width: 50%;
+    
+}
+.img{
+    padding:0 2rem;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+.img img{
+    margin: auto auto;
+}
+button{
+    color:rgba(30, 30, 30, 0.8) ;
+    background-color: white;
+    border: solid 2px#B87333;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.transicion{
+    background: white;
+  color: black;
+  padding: 4rem 2rem;
+}
+.fade-div {
+    height: 120px;
+    background: linear-gradient(to bottom, white, #0a0a0a);
+  }

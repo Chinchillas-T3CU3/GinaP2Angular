@@ -1,0 +1,50 @@
+*{
+    padding-top: 7rem;
+    background-color:  #111;
+    color: white;
+}
+.total{
+    padding-top:8rem ;
+    background: #111;
+    padding-bottom: 2rem;
+    display: flex;
+    margin: auto auto;
+}
+.texto{
+
+    color: white;
+    padding: 3rem;
+    width: 35%;
+    
+}
+h1{
+    font-size: 4rem;
+}
+.img{
+    padding:0 2rem;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+.img img{
+    margin: auto auto;
+}
+button{
+    background:rgba(30, 30, 30, 0.8) ;
+    color: white;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+}
+.transicion{
+    background: white;
+  color: black;
+  padding: 4rem 2rem;
+}
+.transicion-fade {
+    height: 100px;
+    background: linear-gradient(to bottom, #0a0a0a 0%, #0a0a0a00 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  }
