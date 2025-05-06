@@ -1,1 +1,177 @@
-<p>formulario-finaciero works!</p>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="formulario">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error>
+        @if (nombre.touched && nombre.invalid) {
+          @if (nombre.hasError('required')) {
+            <span>Nombre es requerido</span>
+          }
+          @if (nombre.hasError('minlength')) {
+            <span>Mínimo 10 caracteres</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo">
+      <mat-error>
+        @if (correo.touched && correo.invalid) {
+          @if (correo.hasError('required')) {
+            <span>Correo requerido</span>
+          }
+          @if (correo.hasError('email')) {
+            <span>Correo inválido</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Banco</mat-label>
+        <mat-select formControlName="banco">
+          @for (banco of bancos; track banco) {
+            <mat-option [value]="banco">{{ banco }}</mat-option>
+          }
+        </mat-select>
+        
+        @if (banco.touched && banco.invalid) {
+          <mat-error>Selecciona un banco</mat-error>
+        }
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cantidad del préstamo</mat-label>
+      <input matInput type="number" formControlName="cantidad">
+      <mat-error>
+        @if (cantidad.touched && cantidad.invalid) {
+          @if (cantidad.hasError('required')) {
+            <span>Cantidad requerido</span>
+          }
+          @if (cantidad.hasError('min')) {
+            <span>Cantidad minima mayor a 999</span>
+          }
+        }
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Mensualidades</mat-label>
+      <mat-select formControlName="pago">
+        @for (mensualidad of mensualidades; track mensualidad) {
+          <mat-option [value]="mensualidad">{{ mensualidad }}</mat-option>
+        }
+      </mat-select>
+      
+      @if (pago.touched && pago.invalid) {
+        <mat-error>Selecciona una Mesualidad</mat-error>
+      }
+    </mat-form-field>
+  
+    <label>Tipo de cliente</label>
+    <mat-radio-group formControlName="tipo">
+      <mat-radio-button value="Nuevo">Nuevo</mat-radio-button>
+      <mat-radio-button value="Recurrente">Recurrente</mat-radio-button>
+    </mat-radio-group>
+    <mat-error>
+        @if(tipo.touched && tipo.invalid){
+            <span>Selecciona un tipo</span>
+        }
+    </mat-error>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Fecha del trámite</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fecha">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if (fecha.touched && fecha.invalid) {
+        @if (fecha.hasError('required')) {
+          <span>Feche invalida</span>
+        }
+        @if (fecha.hasError('fechaInvalida')) {
+          <span>fehca no puede ser menor a hoy</span>
+        }
+      }
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="terminos">
+      Acepto los términos y condiciones
+    </mat-checkbox>
+    @if(terminos.touched && terminos.invalid){
+        <mat-error>Debes aceptar los términos</mat-error>
+    }
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
+      Enviar
+    </button>
+</form>
+
+<br>
+<h2>Listado de Préstamos</h2>
+@if(prestamos.length > 0){
+    <table mat-table [dataSource]="prestamos" class="mat-elevation-z8 full-width-table" >
+  
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.nombre}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.correo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="banco">
+          <th mat-header-cell *matHeaderCellDef> Banco </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.banco}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.cantidad}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="pago">
+          <th mat-header-cell *matHeaderCellDef> Pago </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.pago}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef> Tipo </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.tipo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let prestamo"> {{prestamo.fecha | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let prestamo; let i = index">
+              <button mat-icon-button color="primary" (click)="editarPrestamo(i)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let prestamo; let i = index">
+              <button mat-icon-button color="warn" (click)="eliminarPrestamo(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        
+          <!-- Encabezados y filas -->
+          <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+      </table>
+}
+@else{
+    <p>No hay registros de préstamos guardados.</p>
+}
