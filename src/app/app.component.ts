@@ -6,7 +6,7 @@ import { FormularioManejoComponent } from "./formulario-manejo/formulario-manejo
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormularioFinacieroComponent, FormularioManejoComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
