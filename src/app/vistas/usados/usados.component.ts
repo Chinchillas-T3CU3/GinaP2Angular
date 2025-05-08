@@ -10,19 +10,26 @@ import { BuscadorComponent } from '../buscador/buscador.component';
   styleUrl: './usados.component.css'
 })
 export class UsadosComponent {
-  usados:Carro[]=[];
-  carroselec:string='';
-  constructor(public miservicio:ListadoService){
-    this.usados=this.miservicio.getUsados();
+  usados: Carro[] = [];
+  carroselec: string = '';
 
+  constructor(private miservicio: ListadoService) {}
+
+  ngOnInit(): void {
+    this.miservicio.getUsados().subscribe({
+      next: (datos) => this.usados = datos,
+      error: (err) => console.error('Error al cargar usados:', err)
+    });
   }
-  get CarrosUsados():Carro[]{
-    return this.usados.filter(carro=>
+
+  get CarrosUsados(): Carro[] {
+    return this.usados.filter(carro =>
       carro.modelo.toLowerCase().includes(this.carroselec.toLowerCase())
     );
   }
 
-  actualizar(valor:string){
-    this.carroselec=valor;
+  actualizar(valor: string) {
+    this.carroselec = valor;
   }
+
 }
