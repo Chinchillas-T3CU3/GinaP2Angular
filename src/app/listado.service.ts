@@ -33,7 +33,7 @@ export class ListadoService {
   }
    searchUsado(nomUsado: string): Observable<number> {
     return this.getUsados().pipe(
-      map(carros => carros.findIndex(c => c.modelo === nomUsado))
+      map(carros => carros.findIndex(c => c.modelo === nomUsado ))
     );
   }
 

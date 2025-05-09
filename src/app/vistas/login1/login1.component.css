@@ -49,3 +49,8 @@ button:hover{
 .interno input::placeholder {
     color: #aaa;
   }
+  .incorrectos{
+    margin-top:10px ;
+    background-color: red;
+    color: #111;
+  }

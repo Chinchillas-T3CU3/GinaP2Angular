@@ -8,23 +8,28 @@ import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-vistas-rutas',
-  imports: [NavbarComponent,FooterComponent,HeaderComponent,RouterModule],
+  imports: [NavbarComponent, FooterComponent, HeaderComponent, RouterModule],
   templateUrl: './vistas-rutas.component.html',
-  styleUrl: './vistas-rutas.component.css'
+  styleUrls: ['./vistas-rutas.component.css']  
 })
 export class VistasRutasComponent {
-  item:any;
-  usados:Carro[]=[];
-  constructor(public miservicio:ListadoService,private route:ActivatedRoute){}
-  ngOnInit(){
-    const index= +this.route.snapshot.paramMap.get('id')!;
-    this.usados=this.miservicio.getUsados();
-    const items=this.usados;
-    this.item=items[index];
+  item: any;
+  usados: Carro[] = [];
+  
+  constructor(public miservicio: ListadoService, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const index = +this.route.snapshot.paramMap.get('id')!;
     
 
-
+    this.miservicio.getUsados().subscribe({
+      next: (datos) => {
+        this.usados = datos;  
+        this.item = this.usados[index];  
+      },
+      error: (err) => {
+        console.error('Error al cargar los datos:', err);  
+      }
+    });
   }
-  
-
 }

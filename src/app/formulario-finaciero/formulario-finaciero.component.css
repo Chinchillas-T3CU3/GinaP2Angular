@@ -71,3 +71,26 @@ input::placeholder {
 .full-width {
     width: 100%;
 }
+input, select {
+  margin-bottom: 10px;
+  border: solid #444; /* Ajusta el color del borde */
+  color: white; /* Color del texto */
+  background-color:red ; /* Fondo del input (más claro que el fondo del formulario) */
+  padding: 8px; /* Un poco de relleno para mejorar la apariencia */
+}
+
+input:focus,
+select:focus {
+  background-color: #D3D3D3;
+  color: white; 
+  border-color: #B87333; 
+  outline: none;
+}
+
+input::placeholder {
+  color: #aaa; /* Color del texto del placeholder */
+}
+
+mat-form-field .mat-label {
+  color: white; /* Color de la etiqueta (mat-label) */
+}

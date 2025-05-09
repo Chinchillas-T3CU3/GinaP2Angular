@@ -8,20 +8,13 @@ import { Router } from '@angular/router';
   selector: 'app-usados',
   imports: [BuscadorComponent],
   templateUrl: './usados.component.html',
-  styleUrl: './usados.component.css'
+  styleUrls: ['./usados.component.css']  // Cambié "styleUrl" a "styleUrls"
 })
 export class UsadosComponent {
-<<<<<<< HEAD
-  usados:Carro[]=[];
-  carroselec:string='';
-  constructor(public miservicio:ListadoService,private router: Router){
-    this.usados=this.miservicio.getUsados();
-=======
   usados: Carro[] = [];
   carroselec: string = '';
->>>>>>> origin/Chinchillas
 
-  constructor(private miservicio: ListadoService) {}
+  constructor(private miservicio: ListadoService, private router: Router) {}
 
   ngOnInit(): void {
     this.miservicio.getUsados().subscribe({
@@ -32,18 +25,16 @@ export class UsadosComponent {
 
   get CarrosUsados(): Carro[] {
     return this.usados.filter(carro =>
-      carro.modelo.toLowerCase().includes(this.carroselec.toLowerCase())
+      carro.modelo.toLowerCase().includes(this.carroselec.toLowerCase()) ||
+      carro.marca.toLowerCase().includes(this.carroselec.toLowerCase())
     );
   }
 
   actualizar(valor: string) {
     this.carroselec = valor;
   }
-<<<<<<< HEAD
-  verDetalles(index:number){
-    this.router.navigate(['/item',index])
-  }
-=======
 
->>>>>>> origin/Chinchillas
+  verDetalles(index: number) {
+    this.router.navigate(['/item', index]);
+  }
 }

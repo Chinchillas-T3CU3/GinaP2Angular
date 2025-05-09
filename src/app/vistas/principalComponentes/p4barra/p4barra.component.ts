@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './p4barra.component.css'
 })
 export class P4barraComponent {
-  autos: string[] = ['Cupra', 'Mustang', 'Camaro', 'Alfa Romeo'];
+  autos: string[] = ['Leon', 'Ateca', 'Formentor'];
 
   @Output() autoSeleccionado = new EventEmitter<string>();
 

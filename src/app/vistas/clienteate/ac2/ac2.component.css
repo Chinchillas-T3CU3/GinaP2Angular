@@ -23,3 +23,30 @@
     justify-content: center;
     text-align: center;
 }
+
+.completed {
+    border-left: 4px solid green;
+  }
+  
+  .in-progress {
+    border-left: 4px solid orange;
+  }
+  
+  .not-started {
+    border-left: 4px solid red;
+  }
+  .btn-ejecutar {
+    padding: 10px 20px;
+    background-color: #B87333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-ejecutar:hover {
+    background-color: #a55d28;
+  }

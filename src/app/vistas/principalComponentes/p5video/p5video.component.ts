@@ -12,14 +12,13 @@ export class P5videoComponent {
 
   getVideoUrl(): string  {
     switch (this.auto) {
-      case 'Cupra':
-        return 'https://www.youtube.com/embed/7Q5KZ2LLM9c?si=NqK7w69tmwa02jRF';
-      case 'Mustang':
-        return 'https://www.youtube.com/embed/5oFP0YgSoDM?si=uFtI7TV3nMq_PBiH';
-      case 'Camaro':
-        return 'https://www.youtube.com/embed/G-P8LzAp8hI?si=l3iy8zovCtOqHtlm';
-      case 'Alfa Romeo':
-        return 'https://www.youtube.com/embed/o_YK0QcK4hw?si=UKr9XE6bmkOe2AfN';
+      case 'Formentor':
+        return 'https://www.youtube.com/embed/KTf4jpMng8c?si=T8AJUx0CSvoaQ8F-';
+      case 'Ateca':
+        return 'https://www.youtube.com/embed/1q4kbj5pcvc?si=C4siKx9Nf-gOB8zn';
+      case 'Leon':
+        return 'https://www.youtube.com/embed/VUx2rxc6rao?si=jgbsl8-k0Eeyj-hL';
+      
       default:
         return '';
     }

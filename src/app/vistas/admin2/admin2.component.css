@@ -1,109 +1,128 @@
-
 .todo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #111;
-    width: 100%;
-    min-height: 100vh;
-    padding-top: 10rem;
-    color: white;
-  }
-  
-  
-  .contenido {
-    width: 100%;
-  
-    background-color: #111;
-    padding-top: 7rem;
-    padding-bottom: 5rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 10rem;
+  color: white;
+}
 
-  .contenido h2 {
-    text-align: center;
-    color: #B87333;
-    margin-bottom: 2rem;
-  }
-  
-  
-  .full-width-table {
-    width: 100%;
-    margin-bottom: 4rem;
-  }
-  
+.contenido {
+  width: 100%;
+  background-color: #111;
+  color: white;
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+}
 
-  .formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    background-color: #0f0f0f;
-    border: 2px solid #B87333;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
-    color: white;
-    width: 90%;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
 
-  input, select, .mat-form-field {
-    width: 100%;
-    color: white;
-  }
-  
-  input::placeholder {
-    color: #ccc;
-  }
-  
-  
-  mat-radio-group {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  
+.contenido h2 {
+  text-align: center;
+  color: #B87333;
+  margin-bottom: 2rem;
+}
 
-  .formulario button {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: transparent;
-    color: white;
-    font-weight: bold;
-    border: 2px solid white;
-    border-radius: 6px;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  .formulario button:hover {
-    background-color: #B87333;
-    border-color: #B87333;
-    color: black;
-    cursor: pointer;
-  }
-  
- 
-  .full-width-table th {
-    background-color: #0f0f0f;
-    color: #B87333;
-    font-weight: bold;
-  }
-  
-  .full-width-table td, .full-width-table th {
-    text-align: center;
-  }
-  
- 
-  .full-width-table button {
-    color: white;
-    background: transparent;
-    border: none;
-  }
-  
-  .full-width-table button:hover {
-    color: #B87333;
-    cursor: pointer;
-  }
+.full-width-table {
+  width: 100%;
+  margin-bottom: 4rem;
+  background-color: #0f0f0f; 
+  color: white; 
+  border-radius: 12px;
+}
+
+.full-width-table th {
+  background-color: #0f0f0f;
+  color: #B87333;
+  font-weight: bold;
+}
+
+.full-width-table td,
+.full-width-table th {
+  text-align: center;
+}
+
+.full-width-table button {
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.full-width-table button:hover {
+  color: #B87333;
+  cursor: pointer;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #0f0f0f;
+  border: 2px solid #B87333;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
+  color: white;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.formulario button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 6px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #B87333;
+  border-color: #B87333;
+  color: black;
+  cursor: pointer;
+}
+
+
+input.mat-input-element,
+textarea.mat-input-element {
+  color: white;
+}
+
+
+input.mat-input-element::placeholder,
+textarea.mat-input-element::placeholder {
+  color: #aaa;
+}
+
+/* ✅ Labels blancos */
+mat-label,
+.mat-form-field label {
+  color: white !important;
+}
+
+/* ✅ Fondo del campo input */
+.mat-form-field-infix {
+  background-color: #1a1a1a;
+}
+
+/* ✅ Texto de los radio buttons en blanco */
+.mat-radio-label-content {
+  color: white !important;
+}
+
+/* ✅ Colores de los radio cuando están seleccionados */
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
+  background-color: white !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: white !important;
+}
+input{
+  color: white;
+}

@@ -9,6 +9,9 @@
     margin-top: 0rem;
     padding-top: 7rem;
   }
+  .vacio{
+    color: white;
+  }
   
   .car-card {
     background: rgba(30, 30, 30, 0.8);
