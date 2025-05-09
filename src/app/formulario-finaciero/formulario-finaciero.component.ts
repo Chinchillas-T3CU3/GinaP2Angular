@@ -12,11 +12,14 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swal from 'sweetalert2';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from '../vistas/navbar/navbar.component';
+import { FooterComponent } from '../vistas/footer/footer.component';
+import { HeaderComponent } from '../vistas/header/header.component';
 
 @Component({
   selector: 'app-formulario-finaciero',
   standalone:true,
-  imports: [ReactiveFormsModule, MatFormFieldModule,MatInputModule,MatSelectModule,MatRadioModule,
+  imports: [ReactiveFormsModule,NavbarComponent,FooterComponent,HeaderComponent, MatFormFieldModule,MatInputModule,MatSelectModule,MatRadioModule,
     MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule,CommonModule,MatTableModule,CommonModule,MatIconModule ],
   templateUrl: './formulario-finaciero.component.html',
   styleUrl: './formulario-finaciero.component.css'

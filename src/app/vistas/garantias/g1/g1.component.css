@@ -18,10 +18,10 @@
   }
   
   .cardsAcostados {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     gap: 2rem;
     justify-content: center;
-    flex-wrap: wrap;
   }
   
   .card {

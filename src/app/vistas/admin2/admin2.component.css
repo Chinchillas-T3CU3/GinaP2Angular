@@ -1,52 +1,109 @@
-.todo{
-    display: flex;
-    justify-content: center;
-    padding-top: 10rem; 
-    background-color:#111;
-    width: 100%;
 
-}
-.tabla{
-    background-color:#111;
+.todo {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    background-color: #111;
     width: 100%;
+    min-height: 100vh;
+    padding-top: 10rem;
+    color: white;
+  }
+  
+  
+  .contenido {
+    width: 100%;
+  
+    background-color: #111;
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+  
 
-}
-.tabla-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+  .contenido h2 {
+    text-align: center;
+    color: #B87333;
+    margin-bottom: 2rem;
+  }
+  
+  
+  .full-width-table {
     width: 100%;
-    max-width: 1100px;
-    background-color:black;
-    padding: 20px;
-    
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.header {
+    margin-bottom: 4rem;
+  }
+  
+
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #0f0f0f;
+    border: 2px solid #B87333;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
+    color: white;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+
+  input, select, .mat-form-field {
+    width: 100%;
+    color: white;
+  }
+  
+  input::placeholder {
+    color: #ccc;
+  }
+  
+  
+  mat-radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+
+  .formulario button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: transparent;
+    color: white;
     font-weight: bold;
+    border: 2px solid white;
+    border-radius: 6px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .formulario button:hover {
+    background-color: #B87333;
+    border-color: #B87333;
+    color: black;
+    cursor: pointer;
+  }
+  
+ 
+  .full-width-table th {
+    background-color: #0f0f0f;
+    color: #B87333;
+    font-weight: bold;
+  }
+  
+  .full-width-table td, .full-width-table th {
     text-align: center;
-    background-color:#B87333;
+  }
+  
+ 
+  .full-width-table button {
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-.data {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    color: white;
-}
-
-
-
-@media (max-width: 600px) {
-    .tabla-grid {
-        grid-template-columns: 1fr;
-    }
-}
+    background: transparent;
+    border: none;
+  }
+  
+  .full-width-table button:hover {
+    color: #B87333;
+    cursor: pointer;
+  }

@@ -1,14 +1,14 @@
 <app-buscador (textoBuscado)="actualizar($event)"></app-buscador>
 <section class="catalogo">
     @for(cu of CarrosUsados;track cu ;let i=$index){
-        <div class="car-card">
+        <div class="car-card" (click)="verDetalles(i)">
             <div class="img-container">
               <img src="{{cu.image}}" alt="">
             </div>
             <div class="info">
               <h2>{{cu.marca}}  {{cu.modelo}} {{cu.version}}</h2>
               <p>{{cu.ano}}</p>
-              <p>{{cu.descripcion}}</p>
+              
               <p>${{cu.valor}}</p>
               <button>Ver más</button>
             </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Carro } from '../../carro';
 import { ListadoService } from '../../listado.service';
 import { BuscadorComponent } from '../buscador/buscador.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usados',
@@ -12,7 +13,7 @@ import { BuscadorComponent } from '../buscador/buscador.component';
 export class UsadosComponent {
   usados:Carro[]=[];
   carroselec:string='';
-  constructor(public miservicio:ListadoService){
+  constructor(public miservicio:ListadoService,private router: Router){
     this.usados=this.miservicio.getUsados();
 
   }
@@ -24,5 +25,8 @@ export class UsadosComponent {
 
   actualizar(valor:string){
     this.carroselec=valor;
+  }
+  verDetalles(index:number){
+    this.router.navigate(['/item',index])
   }
 }

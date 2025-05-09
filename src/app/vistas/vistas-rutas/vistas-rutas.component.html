@@ -1,0 +1,16 @@
+<div class="todo">
+    <app-header></app-header>
+    <app-navbar></app-navbar>
+    <div class="contenido">
+        <img src="{{item.image}}" alt="">
+        <div class="texto">
+            <h2>{{item.marca}}   {{item.modelo}}  {{item.version}}</h2>
+        <p>{{item.ano}}</p>
+        <p>{{item.descripcion}}</p>
+        <p>${{item.valor}}</p>
+        <button routerLink="/pruebaManejo">Solicitar Prueba de Manejo</button>
+
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

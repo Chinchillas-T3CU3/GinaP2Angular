@@ -12,13 +12,16 @@ import Swal from 'sweetalert2';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { NavbarComponent } from '../vistas/navbar/navbar.component';
+import { HeaderComponent } from '../vistas/header/header.component';
+import { FooterComponent } from '../vistas/footer/footer.component';
 
 @Component({
   selector: 'app-formulario-manejo',
   standalone: true,
   imports: [FormsModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatRadioModule,
             MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule
-          ,MatTableModule,MatIconModule,CommonModule ],
+          ,MatTableModule,MatIconModule,CommonModule,NavbarComponent,HeaderComponent,FooterComponent ],
   templateUrl: './formulario-manejo.component.html',
   styleUrl: './formulario-manejo.component.css'
 })

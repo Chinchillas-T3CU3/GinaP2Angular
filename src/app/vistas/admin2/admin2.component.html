@@ -1,16 +1,127 @@
-<div class="todo">
-    <div class="tabla">
-        <div class="tabla-grid">
-            <div class="header">titulo1</div>
-            <div class="header">titulo2</div>
-            <div class="header">titulo3</div>
-            <div class="header">titulo4</div>
-            <div class="header">titulo5</div>
-            <div class="data">info1</div>
-            <div class="data">info2</div>
-            <div class="data">info3</div>
-            <div class="data">info4</div>
-            <div class="data">info5</div>
-        </div>
-    </div>
+<div class="contenido">
+    <div>
+        <h2>Listado de Citas</h2>
+@if(citas.length > 0){
+    <table mat-table [dataSource]="citas" class="mat-elevation-z8 full-width-table" >
+  
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let cita"> {{cita.nombre}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="correo">
+          <th mat-header-cell *matHeaderCellDef> Correo </th>
+          <td mat-cell *matCellDef="let cita"> {{cita.correo}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="autoAProbar">
+          <th mat-header-cell *matHeaderCellDef> Auto a Probar</th>
+          <td mat-cell *matCellDef="let cita"> {{cita.autoAProbar}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let cita"> {{cita.fecha | date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="transmision">
+            <th mat-header-cell *matHeaderCellDef> Transmisión </th>
+            <td mat-cell *matCellDef="let cita"> {{cita.transmision}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef> Editar </th>
+            <td mat-cell *matCellDef="let prestamo; let i = index">
+              <button mat-icon-button color="primary" (click)="editarCita(i)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let prestamo; let i = index">
+              <button mat-icon-button color="warn" (click)="eliminarCita(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        
+          <!-- Encabezados y filas -->
+          <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+          <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+      </table>
+}
+@else{
+    <p>No hay registros de préstamos guardados.</p>
+}
+<h1>Solicitar Prueba de Manejo</h1>
+<form #formulario="ngForm" (ngSubmit)="onSubmit()" class="formulario">
+
+  <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput name="nombre" [(ngModel)]="prueba.nombre" required minlength="10" #nombre="ngModel">
+      @if(nombre.invalid && nombre.touched){
+          <mat-error>
+              @if(nombre.errors?.['required']){
+                  <span>Nombre requerido</span>
+              }
+              @if(nombre.errors?.['minlength']){
+                  <span>Mínimo 10 caracteres</span>
+              }
+          </mat-error>
+      }
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Correo</mat-label>
+      <input matInput name="correo" [(ngModel)]="prueba.correo" required email #correo="ngModel">
+      @if(correo.invalid && correo.touched){
+          <mat-error>
+              @if(correo.errors?.['required']){
+                  <span>Correo requerido</span>
+              }
+              @if(correo.errors?.['email']){
+                  <span>Correo inválido</span>
+              }
+          </mat-error>
+      }
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Auto a probar</mat-label>
+      <mat-select name="autoAProbar" [(ngModel)]="prueba.autoAProbar" required #auto="ngModel">
+      @for(auto of crupaAutos; track auto){
+          <mat-option [value]="auto">{{auto}}</mat-option>
+      }
+      </mat-select>
+      @if(auto.invalid && auto.touched){
+          <mat-error>Selecciona un auto para la prueba</mat-error>
+      }
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Fecha de prueba</mat-label>
+      <input matInput [matDatepicker]="picker" name="fecha" [(ngModel)]="prueba.fecha" required [matDatepickerFilter]="filtrarFechas" #fecha="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      @if(fecha.invalid && fecha.touched){
+          <mat-error>Selecciona una fecha válida</mat-error>
+      }
+  </mat-form-field>
+
+  <label>Tipo de transmisión:</label><br>
+  <mat-radio-group name="transmision" [(ngModel)]="prueba.transmision" required #transmision="ngModel">
+      <mat-radio-button value="Automático">Automático</mat-radio-button>
+      <mat-radio-button value="Estándar">Estándar</mat-radio-button>
+  </mat-radio-group>
+  @if(transmision.invalid && transmision.touched){
+      <mat-error>Selecciona un tipo de transmisión</mat-error>
+  }
+  <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
+    Enviar
+  </button>
+</form>
+
+    </div>    
 </div>

@@ -6,59 +6,139 @@
     width: 100%;
 
 }
-.tabla{
-    background-color:#111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-
+.contenidos{
+    background-color: #111;
+    padding-top: 7rem;
+    padding-bottom: 5rem;
 }
-.tabla-flex {
+.formulario{
+   
+    margin: auto;
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 1200px;
-    background-color: black;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.header {
-    font-weight: bold;
+    gap: 1rem;
+    padding-top: 4rem;
     background-color: #111;
-    color: white;
-}
-
-.celda {
-    flex: 1;
     text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #B87333 ;
 }
-
-.header .celda {
+h1{
+    margin: auto auto;
+    color: white;
+    margin-bottom: 1rem;
+    
+}
+.interno{
+    width: 100%;
     background-color: #111;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+form{
+    width: 60%;
+    margin: 0rem auto;
+    padding: 2.5rem;
+    border: 2px solid #B87333;
+    border-radius: 12px;
+    background-color: #0f0f0f;
+    box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
+    color: white;
+    
+}
+input, select{
+    margin-bottom: 10px;
+    border:solid #4444;
     color: white;
 }
-
-@media (max-width: 600px) {
-    .tabla-flex {
-        width: 100%;
-    }
-    .fila {
-        flex-direction: column;
-    }
-    .celda {
-        margin-bottom: 5px;
-    }
+input:focus,
+select:focus {
+  background-color: #222;
+  border-color: #B87333;
+  outline: none;
 }
+input::placeholder {
+    color:white;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1rem;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 6px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #B87333;
+    border-color: #B87333;
+    color: black;
+    cursor: pointer;
+  }
+  .mat-form-field {
+    background-color: #0f0f0f;
+    color: white;
+  }
+  .mat-form-field-label,
+  .mat-error,
+  .mat-hint {
+    color: white !important;
+  }
+  .mat-select-panel {
+    background-color: #111;
+    color: white;
+  }
+
+
+
+  select option {
+    background-color: #1a1a1a;
+    color: white;
+  }
+.full-width {
+    width: 100%;
+}
+.full-width-table {
+    width: 90%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    background-color: #111;
+    color: white;
+    border: 2px solid #B87333;
+    box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .full-width-table th,
+  .full-width-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #333;
+    color: white;
+    text-align: center;
+  }
+  
+  .full-width-table th {
+    background-color: #0f0f0f;
+    color: #B87333;
+    font-weight: bold;
+  }
+  
+  .full-width-table tr:hover {
+    background-color: #1a1a1a;
+  }
+  
+  .full-width-table button {
+    background: transparent;
+    border: none;
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .full-width-table button:hover {
+    color: #B87333;
+    cursor: pointer;
+  }
+  
