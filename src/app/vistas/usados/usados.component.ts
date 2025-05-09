@@ -11,22 +11,39 @@ import { Router } from '@angular/router';
   styleUrl: './usados.component.css'
 })
 export class UsadosComponent {
+<<<<<<< HEAD
   usados:Carro[]=[];
   carroselec:string='';
   constructor(public miservicio:ListadoService,private router: Router){
     this.usados=this.miservicio.getUsados();
+=======
+  usados: Carro[] = [];
+  carroselec: string = '';
+>>>>>>> origin/Chinchillas
 
+  constructor(private miservicio: ListadoService) {}
+
+  ngOnInit(): void {
+    this.miservicio.getUsados().subscribe({
+      next: (datos) => this.usados = datos,
+      error: (err) => console.error('Error al cargar usados:', err)
+    });
   }
-  get CarrosUsados():Carro[]{
-    return this.usados.filter(carro=>
+
+  get CarrosUsados(): Carro[] {
+    return this.usados.filter(carro =>
       carro.modelo.toLowerCase().includes(this.carroselec.toLowerCase())
     );
   }
 
-  actualizar(valor:string){
-    this.carroselec=valor;
+  actualizar(valor: string) {
+    this.carroselec = valor;
   }
+<<<<<<< HEAD
   verDetalles(index:number){
     this.router.navigate(['/item',index])
   }
+=======
+
+>>>>>>> origin/Chinchillas
 }
