@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-g2',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './g2.component.html',
   styleUrl: './g2.component.css'
 })

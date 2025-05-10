@@ -28,3 +28,7 @@ button{
     padding: 5px;
     text-align: center;
 }
+.fade-div {
+    height: 120px;
+    background: linear-gradient(to top, white, #0a0a0a);
+  }

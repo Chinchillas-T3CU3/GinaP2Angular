@@ -12,11 +12,12 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swal from 'sweetalert2';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin3',
   imports: [ReactiveFormsModule, MatFormFieldModule,MatInputModule,MatSelectModule,MatRadioModule,
-    MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule,CommonModule,MatTableModule,CommonModule,MatIconModule],
+    MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule,CommonModule,MatTableModule,CommonModule,MatIconModule,RouterModule],
   templateUrl: './admin3.component.html',
   styleUrl: './admin3.component.css'
 })

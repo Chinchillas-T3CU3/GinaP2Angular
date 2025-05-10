@@ -1,5 +1,5 @@
 <div class="contenido">
-    <div>
+    <div class="todo">
         <h2>Listado de Citas</h2>
 @if(citas.length > 0){
     <table mat-table [dataSource]="citas" class="mat-elevation-z8 full-width-table" >
@@ -121,6 +121,7 @@
   <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">
     Enviar
   </button>
+  <a class="regresar" routerLink="/AdminMenu">Regresar</a>
 </form>
 
     </div>    

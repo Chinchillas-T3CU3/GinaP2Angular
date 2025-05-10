@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class ListadoService {
   private nuevos:Carro[]=CarrosN;
 
-  private usadosUrl = 'https://carrosusados.free.beeceptor.com/'
+  // private usadosUrl = 'https://carrosusados.free.beeceptor.com/'
 
 
    constructor(private http: HttpClient) {}
@@ -24,7 +24,7 @@ export class ListadoService {
 
   }
    getUsados(): Observable<Carro[]> {
-    return this.http.get<Carro[]>(this.usadosUrl);
+    // return this.http.get<Carro[]>(this.usadosUrl);
   }
   getUnUsado(posicion: number): Observable<Carro> {
     return this.getUsados().pipe(

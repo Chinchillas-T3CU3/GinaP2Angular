@@ -1,128 +1,110 @@
-.todo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #111;
-  width: 100%;
-  min-height: 100vh;
-  padding-top: 10rem;
-  color: white;
-}
-
 .contenido {
-  width: 100%;
-  background-color: #111;
-  color: white;
-  padding-top: 7rem;
-  padding-bottom: 5rem;
-}
-
-
-.contenido h2 {
-  text-align: center;
-  color: #B87333;
-  margin-bottom: 2rem;
-}
-
-.full-width-table {
-  width: 100%;
-  margin-bottom: 4rem;
-  background-color: #0f0f0f; 
-  color: white; 
-  border-radius: 12px;
-}
-
-.full-width-table th {
-  background-color: #0f0f0f;
-  color: #B87333;
-  font-weight: bold;
-}
-
-.full-width-table td,
-.full-width-table th {
-  text-align: center;
-}
-
-.full-width-table button {
-  color: white;
-  background: transparent;
-  border: none;
-}
-
-.full-width-table button:hover {
-  color: #B87333;
-  cursor: pointer;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  background-color: #0f0f0f;
-  border: 2px solid #B87333;
-  border-radius: 12px;
+  background-color: #ffffff;
   padding: 2rem;
-  box-shadow: 0 0 15px rgba(184, 115, 51, 0.3);
-  color: white;
-  width: 90%;
-  max-width: 700px;
-  margin: 0 auto;
+  color: #1c1c1c;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+.todo{
+  padding-top: 7rem;
+  width: 70%;
+  margin: auto auto;
+  text-align: center;
+  
 }
 
-.formulario button {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: transparent;
-  color: white;
+h1, h2 {
+  color: #1c1c1c;
+  margin-bottom: 1rem;
+}
+
+table.mat-table {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mat-header-cell, .mat-cell {
+  color: #1c1c1c;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.mat-header-cell {
+  background-color: #f5f5f5;
   font-weight: bold;
-  border: 2px solid white;
-  border-radius: 6px;
-  transition: background-color 0.3s, border-color 0.3s;
 }
 
-.formulario button:hover {
-  background-color: #B87333;
-  border-color: #B87333;
-  color: black;
-  cursor: pointer;
+.mat-row:nth-child(even) {
+  background-color: #fafafa;
 }
 
+button[mat-icon-button] {
+  color: #b87333;
+}
 
-input.mat-input-element,
-textarea.mat-input-element {
+button[mat-icon-button]:hover {
+  background-color: rgba(184, 115, 51, 0.1);
+}
+
+mat-form-field.full-width {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.mat-form-field-outline {
+  color: #1c1c1c;
+}
+
+.mat-form-field.mat-focused .mat-form-field-outline {
+  color: #b87333 !important;
+}
+
+.mat-radio-button {
+  margin-right: 1rem;
+  color: #1c1c1c;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #b87333;
+}
+
+.mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: #b87333;
+}
+
+button[mat-raised-button] {
+  background-color: #b87333;
+  color: #ffffff;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #a55d28;
+}
+
+mat-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+.regresar {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background-color: #b87333;
   color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 30px 0px ;
+  width: 100%;
 }
 
-
-input.mat-input-element::placeholder,
-textarea.mat-input-element::placeholder {
-  color: #aaa;
-}
-
-/* ✅ Labels blancos */
-mat-label,
-.mat-form-field label {
-  color: white !important;
-}
-
-/* ✅ Fondo del campo input */
-.mat-form-field-infix {
-  background-color: #1a1a1a;
-}
-
-/* ✅ Texto de los radio buttons en blanco */
-.mat-radio-label-content {
-  color: white !important;
-}
-
-/* ✅ Colores de los radio cuando están seleccionados */
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
-  background-color: white !important;
-}
-
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: white !important;
-}
-input{
-  color: white;
+.regresar:hover {
+  background-color: #a25929;
+  transform: scale(1.03);
 }

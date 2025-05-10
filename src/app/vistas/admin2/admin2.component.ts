@@ -15,13 +15,14 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-admin2',
   imports: [FormsModule,MatFormFieldModule,MatInputModule,MatSelectModule,MatRadioModule,
               MatCheckboxModule,MatDatepickerModule,MatNativeDateModule,MatButtonModule
-            ,MatTableModule,MatIconModule,CommonModule,NavbarComponent,HeaderComponent,FooterComponent],
+            ,MatTableModule,MatIconModule,CommonModule,NavbarComponent,HeaderComponent,FooterComponent,RouterModule],
   templateUrl: './admin2.component.html',
   styleUrl: './admin2.component.css'
 })
