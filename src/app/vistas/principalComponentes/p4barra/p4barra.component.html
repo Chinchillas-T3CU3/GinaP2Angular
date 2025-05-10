@@ -2,7 +2,7 @@
     <h2>Ver Videos de las Pruebas de Manejo</h2>
     <label for="selectAuto">Nuestros mejores Autos:</label>
     <select id="selectAuto" class="form-select" (change)="onSeleccionar($event)">
-      <option value="">Seleccionar</option>
+      <!-- <option value="">Seleccionar</option> -->
       @for(auto of autos; track auto){
           <option [value]="auto">{{auto}}</option>
       }

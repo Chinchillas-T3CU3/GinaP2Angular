@@ -31,5 +31,6 @@ export const routes: Routes = [
     {path:"AdminInfo2", component:AdminInfo2Component} ,
     {path:"item/:id", component:VistasRutasComponent} ,
     {path:"pruebaManejo", component:FormularioManejoComponent} ,
+    {path:"**", component:PrincipalComponent} ,
  
 ];
